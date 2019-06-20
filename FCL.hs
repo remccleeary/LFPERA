@@ -88,7 +88,7 @@ sweepUp as = let (ra:ras) =  reverse as in reverse(sweepUpRec ras ra)
 
 sweepUpRec :: (Show a, Floats a) => [a] -> a -> [a]
 sweepUpRec [] b = [b]
-sweepUpRec (a:as) b = let(s,e) =  twoSum a b in e:(sweepUpRec as s)
+sweepUpRec (a:as) b = let(s,e) =  twoSumRN a b in e:(sweepUpRec as s)
 
 sweepDown :: (Show a, Floats a) => [a] -> [a]
 sweepDown [] = []
@@ -96,7 +96,7 @@ sweepDown (a:as) = sweepDownRec as a
 
 sweepDownRec :: (Show a, Floats a) => [a] -> a -> [a]
 sweepDownRec [] b = [b]
-sweepDownRec (a:as) b = let(s,e) =  twoSum a b in
+sweepDownRec (a:as) b = let(s,e) =  twoSumRN a b in
   if(isZero e) then s:(sweepDown as) else s:(sweepDownRec as e)
 
 
